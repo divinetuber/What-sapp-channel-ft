@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add WhatsApp Channels</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      margin: 0;
+      padding: 20px;
+    }
+    h1, h2 {
+      color: #0f0;
+    }
+    form {
+      background: #222;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    input, select, button {
+      padding: 10px;
+      margin: 8px 0;
+      width: 100%;
+      border: none;
+      border-radius: 6px;
+    }
+    button {
+      background: #0f0;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .channel {
+      background: #1a1a1a;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+    }
+    .channel img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-right: 15px;
+    }
+    .channel a {
+      color: #0f0;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .category {
+      font-size: 0.9em;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <h1>Add WhatsApp Channels</h1>
+  <form id="channelForm">
+    <input type="text" id="name" placeholder="Channel Name" required />
+    <input type="url" id="link" placeholder="Channel Link" required />
+    <select id="category">
+      <option value="School Girls">School Girls</option>
+      <option value="Boys Girlfriend">Boys Girlfriend</option>
+      <option value="Hot Vibes">Hot Vibes</option>
+    </select>
+    <button type="submit">Submit Channel</button>
+  </form>
+
+  <h2>🔥 Featured Channel</h2>
+  <div class="channel">
+    <img src="https://i.imgur.com/6RLvxXp.jpg" alt="Netflix Channel" />
+    <div>
+      <a href="https://whatsapp.com/channel/0029VbCtC2ACsU9Tfq18bm2b" target="_blank">Netflix 🥵</a>
+      <div class="category">Hot Vibes</div>
+    </div>
+  </div>
+
+  <h2>Newly Submitted Channels</h2>
+  <div id="channelList"></div>
+
+  <h2>🔥 Dummy Channels</h2>
+  <div class="channel">
+    <img src="https://i.imgur.com/tqj1yNl.jpg" alt="dummy1" />
+    <div>
+      <a href="#">College Crushes 💘</a>
+      <div class="category">School Girls</div>
+    </div>
+  </div>
+  <div class="channel">
+    <img src="https://i.imgur.com/UAFmu7N.jpg" alt="dummy2" />
+    <div>
+      <a href="#">Secret Girlfriends 🔥</a>
+      <div class="category">Boys Girlfriend</div>
+    </div>
+  </div>
+  <div class="channel">
+    <img src="https://i.imgur.com/qZPlF9w.jpg" alt="dummy3" />
+    <div>
+      <a href="#">Hot Party Queens 👠</a>
+      <div class="category">Hot Vibes</div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('channelForm');
+    const list = document.getElementById('channelList');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const link = document.getElementById('link').value;
+      const category = document.getElementById('category').value;
+
+      const div = document.createElement('div');
+      div.className = 'channel';
+      div.innerHTML = `
+        <img src="https://i.imgur.com/6RLvxXp.jpg" alt="userChannel" />
+        <div>
+          <a href="${link}" target="_blank">${name}</a>
+          <div class="category">${category}</div>
+        </div>
+      `;
+
+      list.prepend(div);
+      form.reset();
+    });
+  </script>
+</body>
+</html>
